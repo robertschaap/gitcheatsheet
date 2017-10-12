@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Git Cheatsheet</title>
+<!--    <link href="_css/stylesheet.css" rel="stylesheet" type="text/css">-->
+    <style>
+        /*Global*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    margin: 0 auto;
+    width: 90%;
+    font-size: 0.8rem;
+}
+header {
+    min-height: 6rem;
+    background-color: #AEE8BF;
+    padding: 1rem 1.5rem;
+}
+footer {
+    background-color: #AEE8BF;
+    padding: 1rem 1.5rem;
+}
+
+main {
+    padding: 1rem;
+    background: linear-gradient(to bottom right, #FFFEE6, #B3E0FF);
+    background-color: #FFFEE6;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 100;
+    margin: 0;
+}
+h2 {
+    font-weight: 100;
+    margin: 0;
+}
+caption {
+    font-weight: 200;
+    margin:0 
+}
+code {
+    font-weight: bold;
+}
+
+/*Table*/
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+caption {
+    background-color: rgba(255, 254, 230, 1);
+    border-bottom: 1px solid #B3E0FF;
+}
+td {
+    vertical-align: top;
+    padding: 0.5rem;
+    margin:0;
+    border-bottom: 1px solid rgba(255, 254, 230, 0.5);
+}
+td:first-child {
+    width: 220px;
+    background-color: rgba(255, 254, 230, 0.5);
+}
+
+/*Media Queries*/
+@media(max-width: 700px) {
+    table, thead, tbody, th, td, tr, table caption { 
+    display: block; 
+    }
+
+    table {
+        width: 100%;
+    }
+    td:first-child {
+        width: auto;
+        padding: 0rem 0.5rem;
+    }
+}
+    </style>
+</head>
+    
+<body>
+<header role="heading">
+    <h1>Git Cheatsheet</h1>
+    <h2>A simple cheatsheet (and an excuse to test some HTML/CSS styling.)</h2>
+</header>
+    
+<main role="main">
+    <section id="gitbasic">
+        <table>
+            <caption>Basic Commands</caption>
+            <tr>
+                <td><code>git init</code></td>
+                <td>Initialises and places .git file in folder.</td> 
+            </tr>
+            <tr>
+                <td><code>git status</code></td>
+                <td>Shows current branch, update status, merge conflicts and commits/stages.</td> 
+            </tr>
+            <tr>
+                <td><code>git</code></td>
+                <td>A list of available commands.</td> 
+            </tr>
+            <tr>
+                <td><code>git help -a</code></td>
+                <td>A list of available sub-commands.</td> 
+            </tr>
+        </table>
+        <table>
+            <caption>Configuring Git</caption>
+            <tr>
+                <td><code>git config</code></td>
+                <td>list of configuration commands.</td> 
+            </tr>
+            <tr>
+                <td><code>git config --global user.name</code></td>
+                <td>Show username or change by adding new name in quotes.</td> 
+            </tr>
+            <tr>
+                <td><code>git config --global user.email</code></td>
+                <td>Show user email or change by adding new address in quotes.</td> 
+            </tr>
+        </table>
+        <table>
+            <caption>Working with Remotes</caption>
+            <tr>
+                <td><code>git remote add origin</code></td>
+                <td>Adds github repository to work with, either use SSL or HTTPS.</td> 
+            </tr>
+            <tr>
+                <td><code>git remote -v</code></td>
+                <td>Shows push and pull paths currently set.</td> 
+            </tr>
+            <tr>
+                <td><code>git push -u origin master</code></td>
+                <td>Sets and pushes masterbranch to repository. Used for first push.</td> 
+            </tr>
+            <tr>
+                <td><code>git remote rm origin</code></td>
+                <td>Removes remote address entirely. Useful if needed to change SSL/HTTPS or to push to different repository entirely.</td> 
+            </tr>
+        </table>
+    </section>
+    
+    <section id="gitcommits">
+        <table>
+            <caption>From Stage to Push</caption>
+            <tr>
+                <td><code>git add</code></td>
+                <td>Stage a file. This does nothing but select files to be added to the local repository later on. Add -A affix to stage all files. Git automatically selects only files with changes in that case.</td> 
+            </tr>
+            <tr>
+                <td><code>git commit -m ""</code></td>
+                <td>Commit changes. This stores them in the .git file in the folder. Add comment between quotes on reason for commit.</td> 
+            </tr>
+            <tr>
+                <td><code>git commit -A -m ""</code></td>
+                <td>Shorthand for staging all changes and committing immediately. Add comment between quotes.</td> 
+            </tr>
+            <tr>
+                <td><code>git push</code></td>
+                <td>Push your changes to the remote repository.</td> 
+            </tr>
+            <tr>
+                <td><code>git pull</code></td>
+                <td>Pull your changes from the remote repository.</td> 
+            </tr>
+        </table>
+        <table>
+            <caption>Branching</caption>
+            <tr>
+                <td><code>git branch <em>branchname</em></code></td>
+                <td>Create a new branch separate from the master.</td>
+            </tr>
+            <tr>
+                <td><code>git checkout <em>branchname</em></code></td>
+                <td>Checkout from the current branch and move to the specified branch. This will change all files in the actual folder, any changes not committed to the previous branch will be lost.</td> 
+            </tr>
+            <tr>
+                <td><code>git merge <em>branchname</em></code></td>
+                <td>Merge current branch into specified branch. If there are conflicts, the terminal will point to relevant files. In the files, sections will be highlighted with angled brackets. Make your changes and make sure to remove those brackets before proceeding.</td> 
+            </tr>
+        </table>
+        <table>
+            <caption>Checking Commits</caption>
+            <tr>
+                <td><code>git log</code></td>
+                <td>Shows commits with description and hash.</td>
+            </tr>
+            <tr>
+                <td><code>git log -p</code></td>
+                <td>Shows differences in commits at line level.</td>
+            </tr>
+            <tr>
+                <td><code>git log --stat</code></td>
+                <td>Shows commits with description, hash, filenames and insertions/changes.</td>
+            </tr>
+            <tr>
+                <td><code>git diff</code></td>
+                <td>Shows differences in files at line level. If there are merge conflicts, these are clearly highlighted there as well.</td>
+            </tr>
+        </table>
+    </section>
+</main>
+
+<footer role="contentinfo">
+    <p>Robert Schaap 2017</p>
+</footer>
+
+<script src="_scripts/script.js"></script>
+</body>
+</html>
