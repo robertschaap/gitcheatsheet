@@ -101,7 +101,7 @@ td:first-child {
             <caption>Basic Commands</caption>
             <tr>
                 <td><code>git init</code></td>
-                <td>Initialises and places .git file in folder.</td> 
+                <td>Initialises and places .git file in folder. Create a repository on github (or similar) and after doing first commits use <em>remote add origin</em> as below, then <em>git push -u origin master</em>. Make sure there are commits to push before trying to push.</td> 
             </tr>
             <tr>
                 <td><code>git status</code></td>
@@ -192,6 +192,17 @@ td:first-child {
             </tr>
         </table>
         <table>
+            <caption>Restoring Prior Commits</caption>
+            <tr>
+                <td><code>git checkout -b old-state <em>commithash</em></code></td>
+                <td>Restore a previous commit.</td>
+            </tr>
+            <tr>
+                <td><code>git reset -hard <em>commithash</em></code></td>
+                <td>Reset all local changes in the working directory.</td>
+            </tr>
+        </table>
+        <table>
             <caption>Checking Commits</caption>
             <tr>
                 <td><code>git log</code></td>
@@ -208,6 +219,10 @@ td:first-child {
             <tr>
                 <td><code>git diff</code></td>
                 <td>Shows differences in files at line level. If there are merge conflicts, these are clearly highlighted there as well.</td>
+            </tr>
+            <tr>
+                <td><code>git blame</code></td>
+                <td>Log changes and who's to &quot;blame&quot; for making them.</td>
             </tr>
         </table>
     </section>
